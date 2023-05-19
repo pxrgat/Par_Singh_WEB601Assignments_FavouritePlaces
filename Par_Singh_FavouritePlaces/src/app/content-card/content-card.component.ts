@@ -1,48 +1,31 @@
-import { Component } from '@angular/core';
-import { ContentList } from '../helper-files/content-list';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-content-card',
-  templateUrl: './content-card.component.html',
+  template: `
+    <div class="content-card" [style.border]="borderStyle" (click)="showContentDetails()">
+      <h1>{{ content.title }}</h1>
+      <ng-container *ngIf="content.image">
+        <img [src]="content.image" alt="Content Image">
+      </ng-container>
+      <p>{{ content.description }}</p>
+      <p *ngIf="content.creator">Creator: {{ content.creator }}</p>
+      <p *ngIf="content.type">Type: {{ content.type }}</p>
+      <p *ngIf="content.tags && content.tags.length > 0">Tags: {{ content.tags.join(', ') }}</p>
+    </div>
+  `,
   styleUrls: ['./content-card.component.scss']
 })
 export class ContentCardComponent {
-  myList: ContentList;
-  constructor(){
+  @Input() content: any;
+  borderStyle: string;
 
-    this.myList = new ContentList();
- 
-
-    this.myList.addItem({
-      id: 0,
-      title: "Harmander Sahib",
-      description: "Holy place of sikhs also known as Golden Temple",
-      creator: "Guru Ramdas Ji",
-      imgURL: "assets/img/harmandersahib.jpg",
-      type:"Religious Place"
-    });
-    this.myList.addItem({
-      id: 1,
-      title: "Burj Khalifa",
-      description: "Largest Building in the world",
-      creator: "Skidmore, Owings & Merrill",
-      imgURL: "assets/img/Burj.jpg",
-      type: "Tourest Attrection"
-    });
-    this.myList.addItem({
-      id: 2,
-      title: "Taj Mehal",
-      description: "Ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra.",
-      creator: "Shahjahan",
-      imgURL: "assets/img/taj.jpg",
-      type: "Historical Place"
-    });
-
-  
-
-   
+  constructor() {
+    this.borderStyle = '1px solid black';
   }
 
-
-  
+  showContentDetails() {
+    console.log('Content ID:', this.content.id);
+    console.log('Content Title:', this.content.title);
+  }
 }
