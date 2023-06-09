@@ -1,31 +1,20 @@
 import { Component, Input } from '@angular/core';
+import { Content } from '../helper-files/content-interface';
+
 
 @Component({
   selector: 'app-content-card',
-  template: `
-    <div class="content-card" [style.border]="borderStyle" (click)="showContentDetails()">
-      <h1>{{ content.title }}</h1>
-      <ng-container *ngIf="content.image">
-        <img [src]="content.image" alt="Content Image">
-      </ng-container>
-      <p>{{ content.description }}</p>
-      <p *ngIf="content.creator">Creator: {{ content.creator }}</p>
-      <p *ngIf="content.type">Type: {{ content.type }}</p>
-      <p *ngIf="content.tags && content.tags.length > 0">Tags: {{ content.tags.join(', ') }}</p>
-    </div>
-  `,
+  templateUrl: './content-card.component.html',
   styleUrls: ['./content-card.component.scss']
 })
-export class ContentCardComponent {
-  @Input() content: any;
-  borderStyle: string;
+export class ContentCardComponent{
+  clickEvent(){
+    console.log(this.content.id, this.content.title)
+}
+  @Input() content!: Content;
+@Input() first!: boolean
 
-  constructor() {
-    this.borderStyle = '1px solid black';
-  }
-
-  showContentDetails() {
-    console.log('Content ID:', this.content.id);
-    console.log('Content Title:', this.content.title);
+  constructor(){
+    console.log(this.content);
   }
 }

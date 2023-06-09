@@ -1,14 +1,23 @@
-<div>
-    <div *ngFor="let content of contentList; let isFirst = first"
-         [style.border]="isFirst ? '2px solid black' : '1px solid black'"
-         [style.padding]="isFirst ? '10px' : '5px'"
-         [style.margin-bottom]="'10px'">
-      <h2>{{ content.title }}</h2>
-      <img *ngIf="content.image" [src]="content.image" (click)="showContentDetails(content)">
-      <p *ngIf="content.description">{{ content.description }}</p>
-      <p>Creator: {{ content.creator }}</p>
-      <p *ngIf="content.type">Type: {{ content.type }}</p>
-      <p *ngIf="content.tags && content.tags.length > 0">Tags: {{ content.tags.join(', ') }}</p>
-    </div>
-  </div>
-  
+<h1 style="background-color: rgb(217, 228, 13); text-align: center;">Favourite Places</h1>
+<div id="filter">
+<input [(ngModel)]="findTitle"><button (click)="findContent()">Search</button>
+<br>
+<p [style.color]="isContentFound ? 'green' : 'red'">{{ searchResult  }}</p>
+</div>
+<div id="none">
+<h1>No Type</h1>
+<app-content-card class="none" *ngFor="let item of (contentList | contentFilter :'' )" [content]="item"  [ngClass]="{'highlight': item.title === findTitle && filterResult}" >
+</app-content-card>
+</div>
+
+<div  id ="Historical" >
+<h1>History</h1>
+<app-content-card  *ngFor="let item of (contentList | contentFilter :'Historical' )" [content]="item" [ngClass]="{'highlight': item.title === findTitle && filterResult}" >
+</app-content-card>
+</div>
+
+<div id ="touristAttrcation">
+<h1>Attrcation</h1>
+<app-content-card  *ngFor="let item of (contentList | contentFilter :'Tourist Attrcation' )" [content]="item" [ngClass]="{'highlight': item.title === findTitle && filterResult}">
+</app-content-card>
+</div>

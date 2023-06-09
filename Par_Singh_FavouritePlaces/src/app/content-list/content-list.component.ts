@@ -1,67 +1,77 @@
 import { Component } from '@angular/core';
+import { Content } from '../helper-files/content-interface';
 
 @Component({
   selector: 'app-content-list',
-  template: `
-    <div class="content-list">
-      <app-content-card *ngFor="let content of contents" [content]="content"></app-content-card>
-    </div>
-  `,
+  templateUrl: './content-list.component.html',
   styleUrls: ['./content-list.component.scss']
 })
 export class ContentListComponent {
-  contents = [
+  
+    
+  contentList:Content[] =[
     {
-      id: 1,
+      id: 0,
       title: "Harmander Sahib",
       description: "Holy place of sikhs also known as Golden Temple",
       creator: "Guru Ramdas Ji",
-      image: "assets/img/harmandersahib.jpg",
-      type:"Religious Place"
+      imgURL: "assets/img/harmandersahib.jpg",
+      type:""
     },
     {
-      id: 2,
+      id: 1,
       title: "Burj Khalifa",
       description: "Largest Building in the world",
       creator: "Skidmore, Owings & Merrill",
-      image: "assets/img/Burj.jpg",
-      type: "Tourest Attrection"
+      imgURL: "assets/img/Burj.jpg",
+      type: ""
     },
     {
-      id: 3,
+      id: 2,
       title: "Taj Mehal",
       description: "Ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra.",
       creator: "Shahjahan",
-      image: "assets/img/taj.jpg",
-      type: "Historical Place"
+      imgURL: "assets/img/taj.jpg",
+      type: ""
     },
-
     {
-      id: 4,
+      id: 3,
       title: "Kesgarh Sahib",
       description: "Ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra.",
       creator: "Guru Teg Bahadur Sahib Ji",
-      image: "assets/img/Kesgarhsahib.jpg",
-      type: "Religious Place"
+      imgURL: "assets/img/Kesgarhsahib.jpg",
+      type: ""
+      
+    },
+    {
+      id: 4,
+      title: "Punjbi University",
+      description: "Ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra.",
+      creator: "Shahjahan",
+      imgURL: "assets/img/Desktop.jpeg",
+      type: ""
+      
     },
 
     {
       id: 5,
-      title: "Punjbi University",
-      description: "Ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra.",
-      creator: "Shahjahan",
-      image: "assets/img/Desktop.jpeg",
-      type: "Educational"
-    },
-
-    {
-      id: 6,
       title: "Toronto",
       description: "Ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra.",
       creator: "People",
-      image: "assets/img/toronto.jpeg",
-      type: "Residential area"
-    },
-    // Add more content items here
-  ];
-}
+      imgURL: "assets/img/toronto.jpeg",
+      type: ""
+    }
+    
+    ];
+    findTitle : string ='';
+    filterResult: boolean = false;
+    searchResult: string = '';
+    isContentFound: boolean = false;
+
+    findContent() {
+      this.filterResult = this.contentList.some(content => content.title === this.findTitle);
+      this.isContentFound = !!this.filterResult;
+      this.searchResult = this.isContentFound ? 'Content item found!' : 'Content item not found!';
+      }
+
+  }
