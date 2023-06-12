@@ -16,7 +16,7 @@ export class ContentListComponent {
       description: "Holy place of sikhs also known as Golden Temple",
       creator: "Guru Ramdas Ji",
       imgURL: "assets/img/harmandersahib.jpg",
-      type:""
+      type:"History"
     },
     {
       id: 1,
@@ -24,7 +24,7 @@ export class ContentListComponent {
       description: "Largest Building in the world",
       creator: "Skidmore, Owings & Merrill",
       imgURL: "assets/img/Burj.jpg",
-      type: ""
+      type: "Tourest Attrection"
     },
     {
       id: 2,
@@ -39,7 +39,7 @@ export class ContentListComponent {
       title: "Kesgarh Sahib",
       description: "Ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra.",
       creator: "Guru Teg Bahadur Sahib Ji",
-      imgURL: "assets/img/Kesgarhsahib.jpg",
+      imgURL: "assets/img/Kesgarhsahib.jpeg",
       type: ""
       
     },
