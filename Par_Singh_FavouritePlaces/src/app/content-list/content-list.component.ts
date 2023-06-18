@@ -32,15 +32,17 @@ export class ContentListComponent {
       description: "Ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra.",
       creator: "Shahjahan",
       imgURL: "assets/img/taj.jpg",
-      type: ""
+      type: "",
+      tags: ["3"]
     },
     {
       id: 3,
       title: "Kesgarh Sahib",
       description: "Ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra.",
       creator: "Guru Teg Bahadur Sahib Ji",
-      imgURL: "assets/img/Kesgarhsahib.jpeg",
-      type: ""
+      imgURL: "",
+      type: "",
+      tags: ["34"]
       
     },
     {
@@ -49,7 +51,8 @@ export class ContentListComponent {
       description: "Ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra.",
       creator: "Shahjahan",
       imgURL: "assets/img/Desktop.jpeg",
-      type: ""
+      type: "",
+      tags: ["2"]
       
     },
 
@@ -59,7 +62,8 @@ export class ContentListComponent {
       description: "Ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra.",
       creator: "People",
       imgURL: "assets/img/toronto.jpeg",
-      type: ""
+      type: "",
+      tags: ["1"]
     }
     
     ];
